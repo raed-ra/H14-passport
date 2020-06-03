@@ -12,7 +12,7 @@ $(document).ready(function() {
       password: passwordInput.val().trim()
     };
 
-    if (!userData.email || !userData.password) {
+    if (!userData.email || !userData.password) { //only works if both username and password fields are given
       return;
     }
     // If we have an email and password, run the signUpUser function
@@ -36,7 +36,27 @@ $(document).ready(function() {
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text(err.responseJSON.msg);
     $("#alert").fadeIn(500);
   }
 });
+
+// window.fbAsyncInit = function() {
+//   FB.init({
+//     appId      : '698057667407023',
+//     cookie     : true,
+//     xfbml      : true,
+//     version    : 'v7.0'
+//   });
+    
+//   FB.AppEvents.logPageView();   
+    
+// };
+
+// (function(d, s, id){
+//    var js, fjs = d.getElementsByTagName(s)[0];
+//    if (d.getElementById(id)) {return;}
+//    js = d.createElement(s); js.id = id;
+//    js.src = "https://connect.facebook.net/en_US/sdk.js";
+//    fjs.parentNode.insertBefore(js, fjs);
+//  }(document, 'script', 'facebook-jssdk'));
